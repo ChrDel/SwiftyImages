@@ -27,7 +27,7 @@ import Foundation
 // MARK: - Image generators
 public extension CGImage
 {
-	public class func makeGrayGradient(width: Int, height: Int, fromAlpha: CGFloat, toAlpha: CGFloat) -> CGImage?
+	class func makeGrayGradient(width: Int, height: Int, fromAlpha: CGFloat, toAlpha: CGFloat) -> CGImage?
 	{
 		guard let gradientBitmapContext = CGContext.GrayBitmapContext(width: width, height: height) else
 		{
@@ -47,7 +47,7 @@ public extension CGImage
 		return gradientBitmapContext.makeImage()
 	}
 
-	public class func makeFromString(_ string: String, font: UIFont, fontColor: UIColor, backgroundColor: UIColor, maxSize: CGSize) -> CGImage?
+	class func makeFromString(_ string: String, font: UIFont, fontColor: UIColor, backgroundColor: UIColor, maxSize: CGSize) -> CGImage?
 	{
 		// Create an attributed string with string and font information
 		let paragraphStyle = NSMutableParagraphStyle()
@@ -87,7 +87,7 @@ public extension CGImage
 // MARK: -
 public extension CGImage
 {
-	public func hasAlpha() -> Bool
+	func hasAlpha() -> Bool
 	{
 		let alphaInfo = self.alphaInfo
 		return (alphaInfo == .first || alphaInfo == .last || alphaInfo == .premultipliedFirst || alphaInfo == .premultipliedLast)

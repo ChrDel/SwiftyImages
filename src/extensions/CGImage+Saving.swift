@@ -38,35 +38,35 @@ public enum NYXImageType
 public extension CGImage
 {
 	// MARK: - URL style
-	public func save(to url: URL) -> Bool
+	func save(to url: URL) -> Bool
 	{
 		return self.saveTo(url: url, utiString: self.utiForImageType(.jpeg), backgroundFillColor: nil)
 	}
 
-	public func save(to url: URL, type: NYXImageType) -> Bool
+	func save(to url: URL, type: NYXImageType) -> Bool
 	{
 		return self.saveTo(url: url, utiString: self.utiForImageType(type), backgroundFillColor: nil)
 	}
 
-	public func save(to url: URL, type: NYXImageType, backgroundFillColor: UIColor) -> Bool
+	func save(to url: URL, type: NYXImageType, backgroundFillColor: UIColor) -> Bool
 	{
 		return self.saveTo(url: url, utiString: self.utiForImageType(type), backgroundFillColor: backgroundFillColor)
 	}
 
 	// MARK: - Paths style
-	public func save(toPath path: String) -> Bool
+	func save(toPath path: String) -> Bool
 	{
 		let url = URL(fileURLWithPath: path)
 		return self.saveTo(url: url, utiString: self.utiForImageType(.jpeg), backgroundFillColor: nil)
 	}
 
-	public func save(toPath path: String, type: NYXImageType) -> Bool
+	func save(toPath path: String, type: NYXImageType) -> Bool
 	{
 		let url = URL(fileURLWithPath: path)
 		return self.saveTo(url: url, utiString: self.utiForImageType(type), backgroundFillColor: nil)
 	}
 
-	public func save(toPath path: String, type: NYXImageType, backgroundFillColor: UIColor?) -> Bool
+	func save(toPath path: String, type: NYXImageType, backgroundFillColor: UIColor?) -> Bool
 	{
 		let url = URL(fileURLWithPath: path)
 		return self.saveTo(url: url, utiString: self.utiForImageType(type), backgroundFillColor: backgroundFillColor)

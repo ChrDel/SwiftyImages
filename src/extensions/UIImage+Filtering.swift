@@ -25,7 +25,7 @@ import UIKit
 
 public extension UIImage
 {
-	public func alphaed(value: CGFloat) -> UIImage?
+	func alphaed(value: CGFloat) -> UIImage?
 	{
 		guard let transparentImageRef = self.cgImage?.alphaed(value: value) else
 		{
@@ -36,7 +36,7 @@ public extension UIImage
 	}
 
 	// Value should be in the range (-255, 255)
-	public func brightened(value: Float) -> UIImage?
+	func brightened(value: Float) -> UIImage?
 	{
 		guard let brightenedImageRef = self.cgImage?.brightened(value: value) else
 		{
@@ -47,7 +47,7 @@ public extension UIImage
 	}
 
 	/// (-255, 255)
-	public func contrasted(value: Float) -> UIImage?
+	func contrasted(value: Float) -> UIImage?
 	{
 		guard let contrastedImageRef = self.cgImage?.contrasted(value: value) else
 		{
@@ -57,7 +57,7 @@ public extension UIImage
 		return UIImage(cgImage: contrastedImageRef, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func edgeDetected(_ bias: Int32 = 0) -> UIImage?
+	func edgeDetected(_ bias: Int32 = 0) -> UIImage?
 	{
 		guard let edgedImageRef = self.cgImage?.edgeDetected(bias) else
 		{
@@ -67,7 +67,7 @@ public extension UIImage
 		return UIImage(cgImage: edgedImageRef, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func embossed(_ bias: Int32 = 0) -> UIImage?
+	func embossed(_ bias: Int32 = 0) -> UIImage?
 	{
 		guard let embossedImageRef = self.cgImage?.embossed(bias) else
 		{
@@ -78,7 +78,7 @@ public extension UIImage
 	}
 
 	/// (0.01, 8)
-	public func gammaCorrected(value: Float) -> UIImage?
+	func gammaCorrected(value: Float) -> UIImage?
 	{
 		guard let gammaImageRef = self.cgImage?.gammaCorrected(value: value) else
 		{
@@ -88,7 +88,7 @@ public extension UIImage
 		return UIImage(cgImage: gammaImageRef, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func grayscaled() -> UIImage?
+	func grayscaled() -> UIImage?
 	{
 		guard let grayscaledImageRef = self.cgImage?.grayscaled() else
 		{
@@ -98,7 +98,7 @@ public extension UIImage
 		return UIImage(cgImage: grayscaledImageRef, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func inverted() -> UIImage?
+	func inverted() -> UIImage?
 	{
 		guard let invertedImageRef = self.cgImage?.inverted() else
 		{
@@ -108,7 +108,7 @@ public extension UIImage
 		return UIImage(cgImage: invertedImageRef, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func sepiaed() -> UIImage?
+	func sepiaed() -> UIImage?
 	{
 		guard let sepiaImageRef = self.cgImage?.sepiaed() else
 		{
@@ -118,7 +118,7 @@ public extension UIImage
 		return UIImage(cgImage: sepiaImageRef, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func sharpened(_ bias: Int32 = 0) -> UIImage?
+	func sharpened(_ bias: Int32 = 0) -> UIImage?
 	{
 		guard let sharpenedImageRef = self.cgImage?.sharpened(bias) else
 		{
@@ -128,7 +128,7 @@ public extension UIImage
 		return UIImage(cgImage: sharpenedImageRef, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func unsharpened(_ bias: Int32 = 0) -> UIImage?
+	func unsharpened(_ bias: Int32 = 0) -> UIImage?
 	{
 		guard let unsharpenedImageRef = self.cgImage?.unsharpened(bias) else
 		{

@@ -35,12 +35,12 @@ public let maxPixelComponentValue = UInt8(255)
 // MARK: - RGBA Pixel struct
 public struct RGBAPixel
 {
-	public var r: UInt8
-	public var g: UInt8
-	public var b: UInt8
-	public var a: UInt8
+	var r: UInt8
+	var g: UInt8
+	var b: UInt8
+	var a: UInt8
 
-	public init(r: UInt8, g: UInt8, b: UInt8, a: UInt8)
+	init(r: UInt8, g: UInt8, b: UInt8, a: UInt8)
 	{
 		self.r = r
 		self.g = g
@@ -57,12 +57,12 @@ func == (lhs: RGBAPixel, rhs: RGBAPixel) -> Bool
 // MARK: - ARGB Pixel struct
 public struct ARGBPixel
 {
-	public var a: UInt8
-	public var r: UInt8
-	public var g: UInt8
-	public var b: UInt8
+	var a: UInt8
+	var r: UInt8
+	var g: UInt8
+	var b: UInt8
 
-	public init(a: UInt8, r: UInt8, g: UInt8, b: UInt8)
+	init(a: UInt8, r: UInt8, g: UInt8, b: UInt8)
 	{
 		self.a = a
 		self.r = r

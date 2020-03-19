@@ -25,7 +25,7 @@ import CoreGraphics
 
 public extension CGImage
 {
-	public func masked(withImage maskImage: CGImage) -> CGImage?
+	func masked(withImage maskImage: CGImage) -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let originalWidth = self.width

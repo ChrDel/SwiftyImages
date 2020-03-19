@@ -25,7 +25,7 @@ import UIKit
 
 public extension UIImage
 {
-	public func horizontallyFlipped() -> UIImage?
+	func horizontallyFlipped() -> UIImage?
 	{
 		guard let flipped = self.cgImage?.horizontallyFlipped() else
 		{
@@ -35,7 +35,7 @@ public extension UIImage
 		return UIImage(cgImage: flipped, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func verticallyFlipped() -> UIImage?
+	func verticallyFlipped() -> UIImage?
 	{
 		guard let flipped = self.cgImage?.verticallyFlipped() else
 		{
@@ -45,7 +45,7 @@ public extension UIImage
 		return UIImage(cgImage: flipped, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func rotated(radians: CGFloat) -> UIImage?
+	func rotated(radians: CGFloat) -> UIImage?
 	{
 		guard let rotated = self.cgImage?.rotated(radians: radians) else
 		{
@@ -55,7 +55,7 @@ public extension UIImage
 		return UIImage(cgImage: rotated, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func rotated(degrees: CGFloat) -> UIImage?
+	func rotated(degrees: CGFloat) -> UIImage?
 	{
 		guard let rotated = self.cgImage?.rotated(degrees: degrees) else
 		{
@@ -65,7 +65,7 @@ public extension UIImage
 		return UIImage(cgImage: rotated, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func rotated(degrees: CGFloat, flipOverHorizontalAxis: Bool, flipOverVerticalAxis: Bool) -> UIImage?
+	func rotated(degrees: CGFloat, flipOverHorizontalAxis: Bool, flipOverVerticalAxis: Bool) -> UIImage?
 	{
 		guard let rotated = self.cgImage?.rotated(degrees: degrees, flipOverHorizontalAxis: flipOverHorizontalAxis, flipOverVerticalAxis: flipOverVerticalAxis) else
 		{
@@ -75,7 +75,7 @@ public extension UIImage
 		return UIImage(cgImage: rotated, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func rotated(radians: CGFloat, flipOverHorizontalAxis: Bool, flipOverVerticalAxis: Bool) -> UIImage?
+	func rotated(radians: CGFloat, flipOverHorizontalAxis: Bool, flipOverVerticalAxis: Bool) -> UIImage?
 	{
 		guard let rotated = self.cgImage?.rotated(radians: radians, flipOverHorizontalAxis: flipOverHorizontalAxis, flipOverVerticalAxis: flipOverVerticalAxis) else
 		{
@@ -85,7 +85,7 @@ public extension UIImage
 		return UIImage(cgImage: rotated, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func pixelsRotated(degrees: Float) -> UIImage?
+	func pixelsRotated(degrees: Float) -> UIImage?
 	{
 		guard let rotated = self.cgImage?.pixelsRotated(degrees: degrees) else
 		{
@@ -95,7 +95,7 @@ public extension UIImage
 		return UIImage(cgImage: rotated, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func pixelsRotated(radians: Float) -> UIImage?
+	func pixelsRotated(radians: Float) -> UIImage?
 	{
 		guard let rotated = self.cgImage?.pixelsRotated(radians: radians) else
 		{
@@ -105,7 +105,7 @@ public extension UIImage
 		return UIImage(cgImage: rotated, scale: self.scale, orientation: self.imageOrientation)
 	}
 
-	public func reflected(height: Int = 0, fromAlpha: CGFloat = 1.0, toAlpha: CGFloat = 0.0) -> UIImage?
+	func reflected(height: Int = 0, fromAlpha: CGFloat = 1.0, toAlpha: CGFloat = 0.0) -> UIImage?
 	{
 		guard let reflected = self.cgImage?.reflected(height: height, fromAlpha: fromAlpha, toAlpha: toAlpha) else
 		{

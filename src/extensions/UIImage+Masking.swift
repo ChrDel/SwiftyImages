@@ -25,7 +25,7 @@ import UIKit
 
 public extension UIImage
 {
-	public func masked(withImage maskImage: UIImage) -> UIImage?
+	func masked(withImage maskImage: UIImage) -> UIImage?
 	{
 		guard let maskedImageRef = maskImage.cgImage else
 		{

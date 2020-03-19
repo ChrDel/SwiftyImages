@@ -68,7 +68,7 @@ fileprivate var __negativeMultiplier: Float = -1.0
 
 public extension CGImage
 {
-	public func alphaed(value: CGFloat) -> CGImage?
+	func alphaed(value: CGFloat) -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let width = self.width
@@ -86,7 +86,7 @@ public extension CGImage
 	}
 
 	// Value should be in the range (-255, 255)
-	public func brightened(value: Float) -> CGImage?
+	func brightened(value: Float) -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let width = self.width
@@ -129,13 +129,13 @@ public extension CGImage
 		vDSP_vfixu8(dataAsFloat, 1, t + 3, 4, pixelsCount)
 
 		// Cleanup
-		dataAsFloat.deallocate(capacity: pixelsCountInt)
+		dataAsFloat.deallocate()
 
 		return bmContext.makeImage()
 	}
 
 	/// (-255, 255)
-	public func contrasted(value: Float) -> CGImage?
+	func contrasted(value: Float) -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let width = self.width
@@ -187,12 +187,12 @@ public extension CGImage
 		vDSP_vfixu8(dataAsFloat, 1, t + 3, 4, pixelsCount)
 
 		// Cleanup
-		dataAsFloat.deallocate(capacity: pixelsCountInt)
+		dataAsFloat.deallocate()
 
 		return bmContext.makeImage()
 	}
 
-	public func edgeDetected(_ bias: Int32 = 0) -> CGImage?
+	func edgeDetected(_ bias: Int32 = 0) -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let width = self.width
@@ -217,13 +217,13 @@ public extension CGImage
 		vImageConvolveWithBias_ARGB8888(&src, &dst, nil, 0, 0, __s_edgedetect_kernel_3x3, 3, 3, 1, bias, nil, vImage_Flags(kvImageCopyInPlace))
 
 		// Cleanup
-		data.copyBytes(from: bufferOut, count: size)
-		bufferOut.deallocate(capacity: size)
+		data.copyMemory(from: bufferOut, byteCount: size)
+		bufferOut.deallocate()
 
 		return bmContext.makeImage()
 	}
 
-	public func embossed(_ bias: Int32 = 0) -> CGImage?
+	func embossed(_ bias: Int32 = 0) -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let width = self.width
@@ -248,14 +248,14 @@ public extension CGImage
 		vImageConvolveWithBias_ARGB8888(&src, &dst, nil, 0, 0, __s_emboss_kernel_3x3, 3, 3, 1/*divisor*/, bias, nil, vImage_Flags(kvImageCopyInPlace))
 
 		// Cleanup
-		data.copyBytes(from: bufferOut, count: size)
-		bufferOut.deallocate(capacity: size)
+		data.copyMemory(from: bufferOut, byteCount: size)
+		bufferOut.deallocate()
 
 		return bmContext.makeImage()
 	}
 
 	/// (0.01, 8)
-	public func gammaCorrected(value: Float) -> CGImage?
+	func gammaCorrected(value: Float) -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let width = self.width
@@ -309,13 +309,13 @@ public extension CGImage
 		vDSP_vfixu8(dataAsFloat, 1, t + 3, 4, pixelsCount)
 
 		// Cleanup
-		temp.deallocate(capacity: pixelsCountInt)
-		dataAsFloat.deallocate(capacity: pixelsCountInt)
+		temp.deallocate()
+		dataAsFloat.deallocate()
 
 		return bmContext.makeImage()
 	}
 
-	public func grayscaled() -> CGImage?
+	func grayscaled() -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let width = self.width
@@ -356,7 +356,7 @@ public extension CGImage
 		return grayscaledImageRef.masking(mask)
 	}
 
-	public func inverted() -> CGImage?
+	func inverted() -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let width = self.width
@@ -402,12 +402,12 @@ public extension CGImage
 		vDSP_vfixu8(dataAsFloat, 1, dataBlue, 4, pixelsCount)
 
 		// Cleanup
-		dataAsFloat.deallocate(capacity: pixelsCountInt)
+		dataAsFloat.deallocate()
 
 		return bmContext.makeImage()
 	}
 
-	public func sepiaed() -> CGImage?
+	func sepiaed() -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let width = self.width
@@ -471,20 +471,20 @@ public extension CGImage
 		vDSP_vfixu8(finalBlue, 1, t + 3, 4, pixelsCount)
 
 		// Cleanup
-		reds.deallocate(capacity: pixelsCountInt)
-		greens.deallocate(capacity: pixelsCountInt)
-		blues.deallocate(capacity: pixelsCountInt)
-		tmpRed.deallocate(capacity: pixelsCountInt)
-		tmpGreen.deallocate(capacity: pixelsCountInt)
-		tmpBlue.deallocate(capacity: pixelsCountInt)
-		finalRed.deallocate(capacity: pixelsCountInt)
-		finalGreen.deallocate(capacity: pixelsCountInt)
-		finalBlue.deallocate(capacity: pixelsCountInt)
+		reds.deallocate()
+		greens.deallocate()
+		blues.deallocate()
+		tmpRed.deallocate()
+		tmpGreen.deallocate()
+		tmpBlue.deallocate()
+		finalRed.deallocate()
+		finalGreen.deallocate()
+		finalBlue.deallocate()
 
 		return bmContext.makeImage()
 	}
 
-	public func sharpened(_ bias: Int32 = 0) -> CGImage?
+	func sharpened(_ bias: Int32 = 0) -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let width = self.width
@@ -509,13 +509,13 @@ public extension CGImage
 		vImageConvolveWithBias_ARGB8888(&src, &dst, nil, 0, 0, __s_sharpen_kernel_3x3, 3, 3, 1/*divisor*/, bias, nil, vImage_Flags(kvImageCopyInPlace))
 
 		// Cleanup
-		data.copyBytes(from: bufferOut, count: size)
-		bufferOut.deallocate(capacity: size)
+		data.copyMemory(from: bufferOut, byteCount: size)
+		bufferOut.deallocate()
 
 		return bmContext.makeImage()
 	}
 
-	public func unsharpened(_ bias: Int32 = 0) -> CGImage?
+	func unsharpened(_ bias: Int32 = 0) -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let width = self.width
@@ -540,8 +540,8 @@ public extension CGImage
 		vImageConvolveWithBias_ARGB8888(&src, &dst, nil, 0, 0, __s_unsharpen_kernel_3x3, 3, 3, 1/*divisor*/, bias, nil, vImage_Flags(kvImageCopyInPlace))
 
 		// Cleanup
-		data.copyBytes(from: bufferOut, count: size)
-		bufferOut.deallocate(capacity: size)
+		data.copyMemory(from: bufferOut, byteCount: size)
+		bufferOut.deallocate()
 
 		return bmContext.makeImage()
 	}

@@ -26,7 +26,7 @@ import UIKit
 public extension UIColor
 {
 	// MARK: - Initializers
-	public convenience init(rgb: Int32, alpha: CGFloat)
+	convenience init(rgb: Int32, alpha: CGFloat)
 	{
 		let red = ((CGFloat)((rgb & 0xFF0000) >> 16)) / 255
 		let green = ((CGFloat)((rgb & 0x00FF00) >> 8)) / 255
@@ -35,12 +35,12 @@ public extension UIColor
 		self.init(red: red, green: green, blue: blue, alpha: alpha)
 	}
 
-	public convenience init(rgb: Int32)
+	convenience init(rgb: Int32)
 	{
 		self.init(rgb: rgb, alpha: 1.0)
 	}
 
-	public convenience init(hexString: String, defaultColor: UIColor)
+	convenience init(hexString: String, defaultColor: UIColor)
 	{
 		if hexString.hasPrefix("#") == false
 		{
@@ -48,10 +48,9 @@ public extension UIColor
 			return
 		}
 
-		let start = hexString.index(hexString.startIndex, offsetBy: 1)
-		let hexColor = hexString.substring(from: start)
+        let hexColor = String(hexString.dropFirst())
 
-		if hexColor.characters.count == 8
+		if hexColor.count == 8
 		{
 			let scanner = Scanner(string: hexColor)
 			var hexNumber: UInt64 = 0
@@ -67,7 +66,7 @@ public extension UIColor
 				return
 			}
 		}
-		else if hexColor.characters.count == 6
+		else if hexColor.count == 6
 		{
 			let scanner = Scanner(string: hexColor)
 			var hexNumber: UInt32 = 0
@@ -86,12 +85,12 @@ public extension UIColor
 		self.init(cgColor: defaultColor.cgColor)
 	}
 
-	public convenience init(hexString: String)
+	convenience init(hexString: String)
 	{
 		self.init(hexString: hexString, defaultColor: .clear)
 	}
 
-	public func colorWithMinimumSaturation(_ minSaturation: CGFloat) -> UIColor
+	func colorWithMinimumSaturation(_ minSaturation: CGFloat) -> UIColor
 	{
 		var h: CGFloat = 0.0, s: CGFloat = 0.0, v: CGFloat = 0.0, a: CGFloat = 0.0
 		getHue(&h, saturation: &s, brightness: &v, alpha: &a)
@@ -104,7 +103,7 @@ public extension UIColor
 		return self
 	}
 
-	public func inverted() -> UIColor
+	func inverted() -> UIColor
 	{
 		var r: CGFloat = 0.0, g: CGFloat = 0.0, b: CGFloat = 0.0, a: CGFloat = 0.0
 		getRed(&r, green: &g, blue: &b, alpha: &a)
@@ -126,7 +125,7 @@ public extension UIColor
 		return false
 	}
 
-	public func isContrasting(fromColor color: UIColor) -> Bool
+	func isContrasting(fromColor color: UIColor) -> Bool
 	{
 		var r1: CGFloat = 0.0, g1: CGFloat = 0.0, b1: CGFloat = 0.0, a1: CGFloat = 0.0
 		var r2: CGFloat = 0.0, g2: CGFloat = 0.0, b2: CGFloat = 0.0, a2: CGFloat = 0.0
@@ -148,7 +147,7 @@ public extension UIColor
 		return contrast > 1.6
 	}
 
-	public func isDark() -> Bool
+	func isDark() -> Bool
 	{
 		var r: CGFloat = 0.0, g: CGFloat = 0.0, b: CGFloat = 0.0, a: CGFloat = 0.0
 		getRed(&r, green: &g, blue: &b, alpha: &a)
@@ -158,7 +157,7 @@ public extension UIColor
 		return (lum < 0.5)
 	}
 
-	public func isDistinct(fromColor color: UIColor) -> Bool
+	func isDistinct(fromColor color: UIColor) -> Bool
 	{
 		var r1: CGFloat = 0.0, g1: CGFloat = 0.0, b1: CGFloat = 0.0, a1: CGFloat = 0.0
 		var r2: CGFloat = 0.0, g2: CGFloat = 0.0, b2: CGFloat = 0.0, a2: CGFloat = 0.0
@@ -167,12 +166,12 @@ public extension UIColor
 
 		let threshold: CGFloat = 0.25
 
-		if (fabs(r1 - r2) > threshold || fabs(g1 - g2) > threshold || fabs(b1 - b2) > threshold || fabs(a1 - a2) > threshold)
+		if (abs(r1 - r2) > threshold || abs(g1 - g2) > threshold || abs(b1 - b2) > threshold || abs(a1 - a2) > threshold)
 		{
 			// Prevent multiple gray colors
-			if (fabs(r1 - g1) < 0.03 && fabs(r1 - b1) < 0.03)
+			if (abs(r1 - g1) < 0.03 && abs(r1 - b1) < 0.03)
 			{
-				if (fabs(r2 - g2) < 0.03 && fabs(r2 - b2) < 0.03)
+				if (abs(r2 - g2) < 0.03 && abs(r2 - b2) < 0.03)
 				{
 					return false
 				}

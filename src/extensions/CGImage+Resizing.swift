@@ -47,12 +47,12 @@ public enum NYXScaleMode
 public extension CGImage
 {
 	// MARK: - Cropping
-	public func cropped(toSize: CGSize) -> CGImage?
+	func cropped(toSize: CGSize) -> CGImage?
 	{
 		return self.cropped(toSize: toSize, mode: .topLeft)
 	}
 
-	public func cropped(toSize: CGSize, mode: NYXCropMode) -> CGImage?
+	func cropped(toSize: CGSize, mode: NYXCropMode) -> CGImage?
 	{
 		let size = CGSize(self.width, self.height)
 		var x: CGFloat = 0.0, y: CGFloat = 0.0
@@ -93,18 +93,18 @@ public extension CGImage
 	}
 
 	// MARK: - Scaling
-	public func scaled(factor: CGFloat) -> CGImage?
+	func scaled(factor: CGFloat) -> CGImage?
 	{
 		let scaledSize = CGSize(CGFloat(self.width) * factor, CGFloat(self.height) * factor)
 		return self.scaleToFillSize(scaledSize)
 	}
 
-	public func scaled(toSize: CGSize) -> CGImage?
+	func scaled(toSize: CGSize) -> CGImage?
 	{
 		return self.scaleToFillSize(toSize)
 	}
 
-	public func scaled(toSize: CGSize, mode: NYXScaleMode) -> CGImage?
+	func scaled(toSize: CGSize, mode: NYXScaleMode) -> CGImage?
 	{
 		switch (mode)
 		{

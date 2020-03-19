@@ -35,7 +35,7 @@ private let _gaussianblur_kernel_5x5: [Int16] = [
 
 public extension CGImage
 {
-	public func gaussianBlurred(_ bias: Int32 = 0) -> CGImage?
+	func gaussianBlurred(_ bias: Int32 = 0) -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let width = self.width
@@ -60,8 +60,8 @@ public extension CGImage
 		vImageConvolveWithBias_ARGB8888(&src, &dst, nil, 0, 0, _gaussianblur_kernel_5x5, 5, 5, 256/*divisor*/, bias, nil, vImage_Flags(kvImageCopyInPlace))
 
 		// Cleanup
-		data.copyBytes(from: bufferOut, count: size)
-		bufferOut.deallocate(capacity: size)
+		data.copyMemory(from: bufferOut, byteCount: size)
+		bufferOut.deallocate()
 
 		return bmContext.makeImage()
 	}

@@ -31,7 +31,7 @@ public protocol NYXProgressiveImageViewDelegate : class
 	func imageDownloadFailedWithData(data: Data?)
 }
 
-public class NYXProgressiveImageView : UIImageView
+class NYXProgressiveImageView : UIImageView
 {
 	// MARK: - Public properties
 	// Delegate
@@ -39,9 +39,9 @@ public class NYXProgressiveImageView : UIImageView
 	// Downloading flag
 	public fileprivate(set) var isDownloading: Bool = false
 	// Enable / Disable caching
-	public var isCaching: Bool = false
+	var isCaching: Bool = false
 	// Timeout
-	public var timeoutInterval: TimeInterval = 10.0
+	var timeoutInterval: TimeInterval = 10.0
 
 	// MARK: - Private properties
 	// Download queue
@@ -74,28 +74,28 @@ public class NYXProgressiveImageView : UIImageView
     fileprivate var _imageOrientation: UIImage.Orientation = .up
 
 	// MARK: - Initializers
-	override public init(frame: CGRect)
+	override init(frame: CGRect)
 	{
 		super.init(frame: frame)
 
 		self._queue = DispatchQueue(label:"io.whine.pdliv.queue", qos:.default, attributes:[], autoreleaseFrequency:.inherit, target: nil)
 	}
 
-	override public init(image: UIImage?)
+	override init(image: UIImage?)
 	{
 		super.init(image: image)
 
 		self._queue = DispatchQueue(label:"io.whine.pdliv.queue", qos:.default, attributes:[], autoreleaseFrequency:.inherit, target: nil)
 	}
 
-	override public init(image: UIImage?, highlightedImage: UIImage?)
+	override init(image: UIImage?, highlightedImage: UIImage?)
 	{
 		super.init(image: image, highlightedImage: highlightedImage)
 
 		self._queue = DispatchQueue(label:"io.whine.pdliv.queue", qos:.default, attributes:[], autoreleaseFrequency:.inherit, target: nil)
 	}
 	
-	required public init?(coder aDecoder: NSCoder)
+	required init?(coder aDecoder: NSCoder)
 	{
 		super.init(coder: aDecoder)
 
@@ -103,7 +103,7 @@ public class NYXProgressiveImageView : UIImageView
 	}
 
 	// MARK: - Public
-	public func loadImage(atUrl url: URL)
+	func loadImage(atUrl url: URL)
 	{
 		if isDownloading
 		{
@@ -272,15 +272,15 @@ extension NYXProgressiveImageView : URLSessionDelegate
 }
 
 // MARK: - Static
-public extension NYXProgressiveImageView
+extension NYXProgressiveImageView
 {
-	public class func cachesDirectoryURL() -> URL?
+	class func cachesDirectoryURL() -> URL?
 	{
 		guard let cachesDirectoryURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).last else {return nil}
 		return cachesDirectoryURL.appendingPathComponent("ProgressiveImageViewCache", isDirectory: true)
 	}
 
-	public class func resetCache()
+	class func resetCache()
 	{
 		if let url = NYXProgressiveImageView.cachesDirectoryURL()
 		{

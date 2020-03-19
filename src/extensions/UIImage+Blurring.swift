@@ -25,7 +25,7 @@ import UIKit
 
 public extension UIImage
 {
-	public func gaussianBlurred(_ bias: Int32 = 0) -> UIImage?
+	func gaussianBlurred(_ bias: Int32 = 0) -> UIImage?
 	{
 		guard let blurredImageRef = self.cgImage?.gaussianBlurred(bias) else
 		{

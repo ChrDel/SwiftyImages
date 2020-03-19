@@ -26,32 +26,32 @@ import Accelerate
 
 public extension CGImage
 {
-	public func horizontallyFlipped() -> CGImage?
+	func horizontallyFlipped() -> CGImage?
 	{
 		return self.rotated(radians: 0.0, flipOverHorizontalAxis: true, flipOverVerticalAxis: false)
 	}
 
-	public func verticallyFlipped() -> CGImage?
+	func verticallyFlipped() -> CGImage?
 	{
 		return self.rotated(radians: 0.0, flipOverHorizontalAxis: false, flipOverVerticalAxis: true)
 	}
 
-	public func rotated(radians: CGFloat) -> CGImage?
+	func rotated(radians: CGFloat) -> CGImage?
 	{
 		return self.rotated(radians: radians, flipOverHorizontalAxis: false, flipOverVerticalAxis: false)
 	}
 
-	public func rotated(degrees: CGFloat) -> CGImage?
+	func rotated(degrees: CGFloat) -> CGImage?
 	{
 		return self.rotated(radians: degreesToRadians(degrees), flipOverHorizontalAxis: false, flipOverVerticalAxis: false)
 	}
 
-	public func rotated(degrees: CGFloat, flipOverHorizontalAxis: Bool, flipOverVerticalAxis: Bool) -> CGImage?
+	func rotated(degrees: CGFloat, flipOverHorizontalAxis: Bool, flipOverVerticalAxis: Bool) -> CGImage?
 	{
 		return self.rotated(radians: degreesToRadians(degrees), flipOverHorizontalAxis: flipOverHorizontalAxis, flipOverVerticalAxis: flipOverVerticalAxis)
 	}
 
-	public func rotated(radians: CGFloat, flipOverHorizontalAxis: Bool, flipOverVerticalAxis: Bool) -> CGImage?
+	func rotated(radians: CGFloat, flipOverHorizontalAxis: Bool, flipOverVerticalAxis: Bool) -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let width = self.width
@@ -83,12 +83,12 @@ public extension CGImage
 		return bmContext.makeImage()
 	}
 
-	public func pixelsRotated(degrees: Float) -> CGImage?
+	func pixelsRotated(degrees: Float) -> CGImage?
 	{
 		return self.pixelsRotated(radians: degreesToRadians(degrees))
 	}
 
-	public func pixelsRotated(radians: Float) -> CGImage?
+	func pixelsRotated(radians: Float) -> CGImage?
 	{
 		// Create an ARGB bitmap context
 		let width = self.width
@@ -116,7 +116,7 @@ public extension CGImage
 		return bmContext.makeImage()
 	}
 
-	public func reflected(height: Int = 0, fromAlpha: CGFloat = 1.0, toAlpha: CGFloat = 0.0) -> CGImage?
+	func reflected(height: Int = 0, fromAlpha: CGFloat = 1.0, toAlpha: CGFloat = 0.0) -> CGImage?
 	{
 		var h = height
 		let width = self.width

@@ -57,7 +57,7 @@ public final class KawaiiColors
 	private(set) var thirdColor: UIColor! = nil
 
 	// MARK: - Initializers
-	public init(image: UIImage)
+	init(image: UIImage)
 	{
 		self.image = image
 	}
@@ -81,7 +81,7 @@ public final class KawaiiColors
 	}
 
 	// MARK: - Public
-	public func analyze()
+	func analyze()
 	{
 		// Find edge color
 		var imageColors = [CountedObject<UIColor>]()

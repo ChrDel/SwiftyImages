@@ -26,7 +26,7 @@ import UIKit
 public extension UIImage
 {
 	// MARK: - URL style
-	public func save(to url: URL) -> Bool
+	func save(to url: URL) -> Bool
 	{
 		guard let ret = self.cgImage?.save(to: url) else
 		{
@@ -35,7 +35,7 @@ public extension UIImage
 		return ret
 	}
 
-	public func save(to url: URL, type: NYXImageType) -> Bool
+	func save(to url: URL, type: NYXImageType) -> Bool
 	{
 		guard let ret = self.cgImage?.save(to: url, type: type) else
 		{
@@ -44,7 +44,7 @@ public extension UIImage
 		return ret
 	}
 
-	public func save(to url: URL, type: NYXImageType, backgroundFillColor: UIColor) -> Bool
+	func save(to url: URL, type: NYXImageType, backgroundFillColor: UIColor) -> Bool
 	{
 		guard let ret = self.cgImage?.save(to: url, type: type, backgroundFillColor: backgroundFillColor) else
 		{
@@ -54,7 +54,7 @@ public extension UIImage
 	}
 
 	// MARK: - Paths style
-	public func save(toPath path: String) -> Bool
+	func save(toPath path: String) -> Bool
 	{
 		guard let ret = self.cgImage?.save(toPath: path) else
 		{
@@ -63,7 +63,7 @@ public extension UIImage
 		return ret
 	}
 
-	public func save(toPath path: String, type: NYXImageType) -> Bool
+	func save(toPath path: String, type: NYXImageType) -> Bool
 	{
 		guard let ret = self.cgImage?.save(toPath: path, type: type) else
 		{
@@ -72,7 +72,7 @@ public extension UIImage
 		return ret
 	}
 
-	public func save(toPath path: String, type: NYXImageType, backgroundFillColor: UIColor?) -> Bool
+	func save(toPath path: String, type: NYXImageType, backgroundFillColor: UIColor?) -> Bool
 	{
 		guard let ret = self.cgImage?.save(toPath: path, type: type, backgroundFillColor: backgroundFillColor) else
 		{

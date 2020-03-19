@@ -26,7 +26,7 @@ import UIKit
 public extension UIImage
 {
 	// MARK: - Image generators
-	public class func makeGrayGradient(width: Int, height: Int, fromAlpha: CGFloat, toAlpha: CGFloat) -> UIImage?
+	class func makeGrayGradient(width: Int, height: Int, fromAlpha: CGFloat, toAlpha: CGFloat) -> UIImage?
 	{
 		guard let gradientImage = CGImage.makeGrayGradient(width: width, height: height, fromAlpha: fromAlpha, toAlpha: toAlpha) else
 		{
@@ -36,7 +36,7 @@ public extension UIImage
 		return UIImage(cgImage: gradientImage)
 	}
 
-	public class func makeFromString(_ string: String, font: UIFont, fontColor: UIColor, backgroundColor: UIColor, maxSize: CGSize) -> UIImage?
+	class func makeFromString(_ string: String, font: UIFont, fontColor: UIColor, backgroundColor: UIColor, maxSize: CGSize) -> UIImage?
 	{
 		guard let image = CGImage.makeFromString(string, font: font, fontColor: fontColor, backgroundColor: backgroundColor, maxSize: maxSize) else
 		{
@@ -46,7 +46,7 @@ public extension UIImage
 		return UIImage(cgImage: image)
 	}
 
-	public func tinted(withColor color: UIColor, opacity: CGFloat = 0.0) -> UIImage?
+	func tinted(withColor color: UIColor, opacity: CGFloat = 0.0) -> UIImage?
 	{
 		if #available(iOS 10, *)
 		{
@@ -87,7 +87,7 @@ public extension UIImage
 }
 
 // MARK: - Operators
-public func + (lhs: UIImage, rhs: UIImage) -> UIImage?
+func + (lhs: UIImage, rhs: UIImage) -> UIImage?
 {
 	UIGraphicsBeginImageContextWithOptions(lhs.size, false, lhs.scale)
 

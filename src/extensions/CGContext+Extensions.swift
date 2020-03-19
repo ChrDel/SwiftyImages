@@ -26,7 +26,7 @@ import UIKit
 public extension CGContext
 {
 	// MARK: - ARGB bitmap context
-	public class func ARGBBitmapContext(width: Int, height: Int, withAlpha: Bool) -> CGContext?
+	class func ARGBBitmapContext(width: Int, height: Int, withAlpha: Bool) -> CGContext?
 	{
 		let alphaInfo = withAlpha ? CGImageAlphaInfo.premultipliedFirst : CGImageAlphaInfo.noneSkipFirst
 		let bmContext = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: width * numberOfComponentsPerARBGPixel, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: alphaInfo.rawValue)
@@ -34,7 +34,7 @@ public extension CGContext
 	}
 
 	// MARK: - RGBA bitmap context
-	public class func RGBABitmapContext(width: Int, height: Int, withAlpha: Bool) -> CGContext?
+	class func RGBABitmapContext(width: Int, height: Int, withAlpha: Bool) -> CGContext?
 	{
 		let alphaInfo = withAlpha ? CGImageAlphaInfo.premultipliedLast : CGImageAlphaInfo.noneSkipLast
 		let bmContext = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: width * numberOfComponentsPerRGBAPixel, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: alphaInfo.rawValue)
@@ -42,7 +42,7 @@ public extension CGContext
 	}
 
 	// MARK: - Gray bitmap context
-	public class func GrayBitmapContext(width: Int, height: Int) -> CGContext?
+	class func GrayBitmapContext(width: Int, height: Int) -> CGContext?
 	{
 		let bmContext = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: width * numberOfComponentsPerGrayPixel, space: CGColorSpaceCreateDeviceGray(), bitmapInfo: CGImageAlphaInfo.none.rawValue)
 		return bmContext

@@ -26,12 +26,12 @@ import UIKit
 public extension UIImage
 {
 	// MARK: - Cropping
-	public func cropped(toSize: CGSize) -> UIImage?
+	func cropped(toSize: CGSize) -> UIImage?
 	{
 		return self.cropped(toSize: toSize, mode: .topLeft)
 	}
 
-	public func cropped(toSize: CGSize, mode: NYXCropMode) -> UIImage?
+	func cropped(toSize: CGSize, mode: NYXCropMode) -> UIImage?
 	{
 		guard let cgImage = self.cgImage else
 		{
@@ -166,18 +166,18 @@ public extension UIImage
 	}
 
 	// MARK: - Scaling
-	public func scaled(factor: CGFloat) -> UIImage?
+	func scaled(factor: CGFloat) -> UIImage?
 	{
 		let scaledSize = CGSize(self.size.width * factor, self.size.height * factor)
 		return self.scaleToFillSize(scaledSize)
 	}
 
-	public func scaled(toSize: CGSize) -> UIImage?
+	func scaled(toSize: CGSize) -> UIImage?
 	{
 		return self.scaleToFillSize(toSize)
 	}
 
-	public func scaled(toSize: CGSize, mode: NYXScaleMode) -> UIImage?
+	func scaled(toSize: CGSize, mode: NYXScaleMode) -> UIImage?
 	{
 		switch (mode)
 		{
